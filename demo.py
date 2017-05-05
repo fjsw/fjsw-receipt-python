@@ -1,9 +1,8 @@
 #coding=utf-8
-import gateway
+import receipt
 
 if __name__ == '__main__':
     DATA = {
-        "method":"receipt.scan.authcode",
         "merchid": 1484901323,
         "devid": "123",
         "amount": 1,
@@ -13,6 +12,6 @@ if __name__ == '__main__':
     APPID = "12345"
     APPKEY = '12345'
     GATEWAYURL = "http://api.test.shuwang.info/receipt/rest"
-    receipt = gateway.Gateway(GATEWAYURL, APPID, APPKEY)
-    receipt.call_method(DATA)
+    receiptpay = receipt.Receipt(GATEWAYURL, APPID, APPKEY)
+    response = receiptpay.scan_authcode(DATA)
 
